@@ -1,3 +1,8 @@
+---
+title: Motivation and Project Statement
+nav_include: 1
+---
+
 # Spotify Recommendation Algorithm
 Group 21: Alex Spiride, Dean Hathout, and Eric Zhu
 
