@@ -3,6 +3,9 @@ title: Content-Based Recommendation Model
 nav_include: 3
 ---
 
+
+<a href="https://aspiride.github.io/Spotify-Group-21/"><img src="https://cdn0.iconfinder.com/data/icons/command-buttons/512/Home-512.png" width="80" class="center"></a>
+---
 # Content-Based Recommendation Model
 
 ## Reading in the Data
@@ -789,3 +792,5 @@ songs that most closely match, or the clusters confuse the model and prevent it 
 it would have because of its cluster. Since the clusters had relatively low silhouette scores, this second hypothesis 
 is probably more likely as the clusters are not great representations of the data as a whole.
 
+
+<a href="https://aspiride.github.io/Spotify-Group-21/"><img src="https://cdn0.iconfinder.com/data/icons/command-buttons/512/Home-512.png" width="80" class="center"></a>
