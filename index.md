@@ -6,7 +6,7 @@ nav_include: 1
 # Spotify Recommendation Algorithm
 Group 21: Alex Spiride, Dean Hathout, and Eric Zhu
 
-## Motivation
+## Motivation & Literature Review
 
 Why do we need a music recommendation system? The reason is that an enormous number of songs are available from online resources, Spotify, for example, has more than 40 million songs. On the other hand, an average listener could listen to only a few hundred songs, unaware of millions of songs that may interest him or her. Moreover, the demand for music is highly personalized, and a universal recommendation may not work well. There are many key factors to consider, including listener's music preference, emotional mood, and listening intent and context in order to make an effective recommendation. It is simply impossible for a human to do it, and therefore we need to implement a music recommendation system by exploiting the power of data science.
 
