@@ -148,6 +148,7 @@ This is a good sign -- as it means we do not have to worry about transforming/dr
 pd.plotting.scatter_matrix(data[data.columns[9:]], alpha=0.5, figsize=(20.0, 20.0))
 plt.show()
 ```
+![png](Images/data_viz2.png)
 
 ## Cold-Start Problem Data
 For the cold-start problem, the data set is a subset of <a href="https://labrosa.ee.columbia.edu/millionsong/tasteprofile">
