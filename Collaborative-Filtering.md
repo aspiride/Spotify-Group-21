@@ -1,3 +1,8 @@
+---
+title: Collaborative Filtering Approach
+nav_include: 4
+---
+
 # Collaborative-Filtering Approach
 
 ## Theoretical Background
