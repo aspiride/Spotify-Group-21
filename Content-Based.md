@@ -390,6 +390,44 @@ choose the songs that are already in the playlist to be added into the playlist.
 a finer measure of that same idea. A larger mean self-prediction probability means that the model is, on average, more 
 confident that all of the songs in the target playlist belong there.
 
+## Tuning the Trees
+
+In the cell below, we perform a CV-like procedure to find the best value for max_depth. We test values from 1 to 20, and for each value, we create 300 different models based on 300 randomly sampled playlists. Then, we record the train and test accuracies of each model at each depth in two dictionaries we define below, each indexed by depth. Once this is complete, we compute the mean test accuracy (across the 300 different models) of each value of max_depth, and select the value with the highest average testing accuracy.
+
+``` python
+depths = range(1,21)
+depth_train_scores = {depth: [] for depth in depths}
+depth_test_scores = {depth: [] for depth in depths}
+
+playlists = np.random.choice(range(49000, 49999), size=300, replace=False)
+for i, playlist in enumerate(playlists):
+    X_train, X_test, y_train, y_test = get_train(playlist)
+    for depth in depths:
+        model = RandomForestClassifier(n_estimators=100, max_depth=depth)
+        model.fit(X_train[labels], y_train)
+        depth_train_scores[depth].append(model.score(X_train[labels], y_train))
+        depth_test_scores[depth].append(model.score(X_test[labels], y_test))        
+```
+
+``` python
+test_score_means = [np.mean(depth_test_scores[i]) for i in range(1, 21)]
+train_score_means = [np.mean(depth_train_scores[i]) for i in range(1, 21)]
+
+best_test_depth = np.argmax(test_score_means) + 1
+best_train_depth = np.argmax(train_score_means) + 1
+
+plt.plot(range(1, 21), test_score_means)
+plt.plot(best_test_depth, max(test_score_means), color='red', marker='o')
+plt.plot(range(1, 21), train_score_means)
+plt.plot(best_train_depth, max(train_score_means), color='black', marker='o')
+plt.xlabel("Max Depth")
+plt.ylabel("Mean Accuracy")
+plt.title("Mean Test and Train Accuracies at Different Values of max_depth")
+plt.legend(labels=['Testing', 'Training'])
+plt.show()
+```
+![png](Images/content_tuning_1.png)
+
 ## Model Comparison
 Logistic Regression (Baseline) vs Random Forest vs Bagged Forest
 
