@@ -347,7 +347,7 @@ Elapsed Time: 8.795955657958984
 ``` python
 get_results(5, diagnostics=True, include_playlist_sample=True)
 ```
-![png](Images/content_output_1.png)
+<img src="Images/content_output_1.png" width="800"/>
 
 The above results show the output from the model on the first playlist in the dataset with `playlist_id` 49000 with 40 
 iterations in the Bagged Forest. By observation, the playlist appears to be focused on rap and maybe R&B music. Judging 
