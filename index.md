@@ -2,9 +2,12 @@
 title: Motivation and Project Statement
 nav_include: 1
 ---
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<a href="https://aspiride.github.io/Spotify-Group-21/EDA"> <button>EDA</button> <a>
 
+## [EDA](https://aspiride.github.io/Spotify-Group-21/EDA)
+## [Content-Based Recommendations](https://aspiride.github.io/Spotify-Group-21/Content-Based)
+## [Collaborative Filtering](https://aspiride.github.io/Spotify-Group-21/Collaborative-Filtering)
+## [Conclusions](https://aspiride.github.io/Spotify-Group-21/Conclusions)
+----
 # Spotify Recommendation Algorithm
 Group 21: Alex Spiride, Dean Hathout, and Eric Zhu
 
