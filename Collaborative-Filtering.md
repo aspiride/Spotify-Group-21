@@ -26,18 +26,7 @@ elements are user's ratings for songs ranging from 0 to 5. For example, the foll
 users' rating to five songs: 
 
 
-$\left( 
-\begin{array}{cccccc}
-& \text{song-1} & \text{song-2} & \text{song-3} & \text{song-4} & \text{%
-song-5} \\ 
-\text{user-1} & ? & 4 & ? & 3 & ? \\ 
-\text{user-2} & 1 & 2 & ? & ? & ? \\ 
-\text{usre-3} & 4 & ? & 3 & ? & 2 \\ 
-\text{user-4} & ? & 3 & 0 & 5 & ? \\ 
-\text{user-5} & ? & 3 & ? & 1 & ? \\ 
-\text{user-6} & 1 & ? & ? & ? & 5%
-\end{array}%
-\right) $
+![png](Images/collab_math_1.png)
 
 Notice that many matrix entries in the user-item matrix are missing because a user may only listen and rate a small 
 portion of songs in the whole song set. In reality, the problem can be even more serious, an average user may have 
@@ -49,30 +38,7 @@ make prediction of the unknown elements based on the known elements.
 One popular approach of collaborative filter is called matrix factorization. The key idea is to assume that user-item 
 matrix can be decomposed into the product of the user matrix and the item matrix.
 
-$\left( 
-\begin{array}{ccccc}
-? & 4 & ? & 3 & ? \\ 
-1 & 2 & ? & ? & ? \\ 
-4 & ? & 3 & ? & 2 \\ 
-? & 3 & 0 & 5 & ? \\ 
-? & 3 & ? & 1 & ? \\ 
-1 & ? & ? & ? & 5%
-\end{array}%
-\right) =\left( 
-\begin{array}{cc}
-u_{11} & u_{12} \\ 
-u_{21} & u_{22} \\ 
-u_{31} & u_{32} \\ 
-u_{41} & u_{42} \\ 
-u_{51} & u_{52} \\ 
-u_{61} & u_{62}%
-\end{array}%
-\right) \left( 
-\begin{array}{ccccc}
-s_{11} & s_{21} & s_{31} & s_{41} & s_{51} \\ 
-s_{12} & s_{22} & s_{32} & s_{42} & s_{52}%
-\end{array}%
-\right) $ 
+![png](Images/collab_math_2.png)
 
 in which each user is represented a vector in the user matrix and each song is represented by a vector in the item 
 matrix. The user matrix and the item matrix share the same inner dimension (2 in this example) which is called latent 
@@ -85,13 +51,7 @@ An alternative approach to implement collaborative filter is to use neutral netw
 there is a nonlinear mapping from the user vector and the item vector to the rating, which does not have to be dot product. 
 Instead, the mapping will be learned dynamically by training a neural network with known ratings.
 
-$\left[ u_{i1},u_{i2},u_{i3}\right] =g_{\text{user}}\left( i\right) $
-
-$\left[ s_{j1},s_{j2},s_{j3},s_{j4},s_{j5}\right] =g_{\text{item}}\left(
-j\right) $
-
-$r_{ij}=f\left( \left[
-u_{i1},u_{i2},u_{i3},s_{j1},s_{j2},s_{j3},s_{j4},s_{j5}\right] \right) $
+![png](Images/collab_math_3.png)
 
 Without the constraint of matrix product, the dimension of user latent space can be different from that of item latent 
 space, providing an extra flexibility in the model.
@@ -106,21 +66,7 @@ only the position of one carries the information while the zeros are just placeh
 adopts a single 
 vector to represent all categories, and the components of the vector can vary continuously. 
 
-$
-\begin{array}{ccc}
-& \text{one-hot encoding} & \text{embedding} \\ 
-\text{song-1} & \left[ 1,0,0,0,0\right]  & \left[ 0.81,0.09,0.15,0.14,0.65%
-\right]  \\ 
-\text{song-2} & \left[ 0,1,0,0,0\right]  & \left[ 0.90,0.27,0.97,0.42,0.03%
-\right]  \\ 
-\text{song-3} & \left[ 0,0,1,0,0\right]  & \left[ 0.12,0.54,0.95,0.91,0.84%
-\right]  \\ 
-\text{song-4} & \left[ 0,0,0,1,0\right]  & \left[ 0.91,0.95,0.48,0.79,0.93%
-\right]  \\ 
-\text{song-5} & \left[ 0,0,0,0,1\right]  & \left[ 0.63,0.96,0.80,0.95,0.67%
-\right] 
-\end{array}%
-$
+![png](Images/collab_math_4.png)
 
 The mapping between categories and embedding vectors are not predefined. On the contrary, it is learned through training 
 in order to best represent the relationship between categories. The size of embedding vector is a hyperparameters,
