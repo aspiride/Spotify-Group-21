@@ -3,9 +3,6 @@ title: Content-Based Recommendation Model
 nav_include: 3
 ---
 
-
-Obtaining Data and EDA
-
 # Content-Based Recommendation Model
 
 ## Reading in the Data
