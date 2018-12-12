@@ -155,3 +155,89 @@ For the cold-start problem, the data set is a subset of <a href="https://labrosa
 The Echo Nest Taste Profile Subset</a>, having 2 million user records composed of triplet (`user_tag`, `song_tag`, 
 `play_count`). 
 
+### Preprocessing
+
+``` python
+## load data
+datafile = 'data/10000.txt'
+data = pd.read_csv(datafile, sep='\t', names = ['user_tag', 'item_tag', 'counts'])
+```
+
+``` python
+## preprocessing: add user_id and item_id
+data['user_id'] = data.user_tag.astype('category').cat.codes.values
+data['item_id'] = data.item_tag.astype('category').cat.codes.values
+n_record = data.shape[0]
+n_user = len(np.unique(data.user_id))
+n_item = len(np.unique(data.item_id))
+sparsity = n_record / (n_user*n_item)
+print('#record: ', n_record)
+print('#user:   ', n_user)
+print('#item:   ', n_item)    
+print('sparsity = ', sparsity)    
+```
+```
+#record:  2000000
+#user:    76353
+#item:    10000
+sparsity =  0.0026194124657839247
+```
+Here, we rate every song from 0 to 5 by the play count, where 0-10 plays has rating 0, 11-20 plays has rating 1, 21-30 plays is 2, 31-40 is 3, 41-50 is 4, and 51+ is 5. 
+``` python
+data_count = data['counts']
+data_rating = data_count.copy()
+data_rating[data_count<=10] = 0
+data_rating[(data_count<=20) & (data_count>10)] = 1
+data_rating[(data_count<=30) & (data_count>20)] = 2
+data_rating[(data_count<=40) & (data_count>30)] = 3
+data_rating[(data_count<=50) & (data_count>40)] = 4
+data_rating[data_count>50] = 5
+data['rating'] = data_rating
+rating_list = [0,1,2,3,4,5]
+rating_count_list = np.zeros(len(rating_list))
+for i,rating in enumerate(rating_list):
+    rating_count = np.sum(data['rating']==rating)
+    rating_count_list[i] = rating_count
+    print('rating = {0:d}:  {1:d} songs'.format(rating,rating_count))
+```
+```
+rating = 0:  1904884 songs
+rating = 1:  63975 songs
+rating = 2:  16757 songs
+rating = 3:  6569 songs
+rating = 4:  3033 songs
+rating = 5:  4782 songs
+```
+
+### Visualization
+
+``` python
+display(data.head())
+```
+![png](Images/data_coldstart_head.png)
+``` python
+## rating distribution
+fig1,ax1 = plt.subplots(1,1,figsize=(6,4))    
+ax1.bar(np.arange(6), rating_count_list)  
+ax1.set_yscale('log')
+ax1.set_xlabel('rating')
+ax1.set_ylabel('counts')
+ax1.set_title('Rating Statistics')
+plt.show()
+```
+![png](Images/data_coldstart_dist.png)
+``` python
+## user distribution
+data_groupby_user = data.groupby('user_id').count()
+fig2,ax2 = plt.subplots(1,1,figsize=(6,4))    
+ax2.hist(data_groupby_user.counts, bins=20)  
+ax2.set_yscale('log')
+ax2.set_xlabel('#song / user')
+ax2.set_ylabel('counts')
+ax2.set_title('User statistics')
+plt.show()
+```
+![png](Images/data_coldstart_songs_per.png)
+
+
+
