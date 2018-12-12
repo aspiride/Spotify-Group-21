@@ -1,3 +1,8 @@
+---
+title: Obtaining Data and EDA
+nav_include: 2
+---
+
 # Obtaining Data and EDA
 
 ## Content-Based Recommendation
