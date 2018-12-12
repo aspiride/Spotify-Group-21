@@ -3,6 +3,8 @@ title: Motivation and Project Statement
 nav_include: 1
 ---
 
+<a href="https://aspiride.github.io/Spotify-Group-21/EDA"> <button>EDA</button> <a>
+
 # Spotify Recommendation Algorithm
 Group 21: Alex Spiride, Dean Hathout, and Eric Zhu
 
