@@ -3,6 +3,8 @@ title: Collaborative Filtering Approach
 nav_include: 4
 ---
 
+<a href="https://aspiride.github.io/Spotify-Group-21/"><img src="https://cdn0.iconfinder.com/data/icons/command-buttons/512/Home-512.png" width="80" class="center"></a>
+---
 # Collaborative-Filtering Approach
 
 ## Theoretical Background
