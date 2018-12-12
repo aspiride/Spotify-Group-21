@@ -3,6 +3,12 @@ title: Content-Based Recommendation Model
 nav_include: 3
 ---
 
+## Contents
+{:.no_toc}
+*  
+{: toc}
+
+
 
 <a href="https://aspiride.github.io/Spotify-Group-21/"><img src="https://cdn0.iconfinder.com/data/icons/command-buttons/512/Home-512.png" width="80" class="center"></a>
 ---
