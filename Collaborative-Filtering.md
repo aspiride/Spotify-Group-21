@@ -443,6 +443,7 @@ display(id_table_rec)
 ![png](Images/collab_test_3.png)
 
 
+<a href="https://aspiride.github.io/Spotify-Group-21/"><img src="https://cdn0.iconfinder.com/data/icons/command-buttons/512/Home-512.png" width="80" class="center"></a>
 
 
 
