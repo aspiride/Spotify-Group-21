@@ -50,12 +50,108 @@ def get_json(file_range=10):
       print('Error, file not found')
       return []
   return data
+
+def get_df_from_playlist(playlist):
+  # input:  a dict of a playlist
+  # output: DataFrame of the playlist
+    try:
+        temp = pd.DataFrame(playlist['tracks'])
+        temp['playlist_id'] = str(playlist['pid'])
+        return temp
+    except:
+        print("Error: couldn't convert playlist dict to df")
+        return 0
+
+def combine_dfs(playlists):
+  # input:  list of playlists
+  # output: DataFrame of tracks by playlist
+    try:
+        df = pd.DataFrame()
+        for playlist in playlists:
+            df = df.append(get_df_from_playlist(playlist))
+        return df.reset_index(drop=True)
+    except:
+        print("Error: couldn't combine DataFrames")
+        return 0
+
+def combine_slices(slices_list):
+  # input:  list of jsons with playlist data
+  #    - each item in the list is its own slice of the data (slice ex: mpd.slice.0-999.json)
+  # output: DataFrame of tracks by playlist
+  try:
+    df = pd.DataFrame()
+    for slice in slices_list:
+        df = df.append(combine_dfs(slice['playlists']))
+    return df.reset_index(drop=True)
+  except:
+    print("Error: couldn't combine slice")
+    return 0
+
+# make 10 random slices
+combine_slices(get_json(10)).to_csv('10_random_slices.csv')
 ```
 
-# TODO TODO TODO 
-# TODO TODO TODO 
-# TODO TODO TODO 
-# TODO TODO TODO 
+#### Using Spotify's API to get features
+
+``` python
+# Python library for using the Spotify Web API, documentation found here:
+# https://spotipy.readthedocs.io/en/latest/
+
+import spotipy 
+from spotipy.oauth2 import SpotifyClientCredentials
+```
+
+``` python
+# Credentials needed to use Spotify API, obtained by creating an 'app' account with Spotify Web API
+client_id = "99da7438218d48fda759c2c5be69d530"
+client_secret = "46f0e08cf7c7413f918b3384dcf54e88"
+
+oauth = SpotifyClientCredentials(client_id, client_secret)
+```
+
+``` python
+slices = pd.read_csv("single_slice_49000-49999.csv", encoding='latin1')
+
+token = oauth.get_access_token()
+sp = spotipy.Spotify(auth=token) # Initialize Spotify class from Spotipy library, with access token.
+
+tracks = slices['track_uri'].values
+num_tracks = len(tracks)
+
+all_tracks_features = [] # Initialize list of dictionaries which will contain audio features for each track
+dates = []
+explicit = []
+i = 0
+while 50 * i <= num_tracks - 1:
+    trks = tracks[50 * i : 50 * (i + 1)]
+    tracks_info = sp.tracks(tracks=trks)['tracks']
+    dates = dates + [int(t['album']['release_date'][:4]) for t in tracks_info]
+    explicit = explicit + [int(t['explicit']) for t in tracks_info]
+    all_tracks_features = all_tracks_features + sp.audio_features(tracks=trks)
+    print(50 * i)
+    i += 1
+```
+``` python
+features = ['acousticness', 'danceability', 'energy', 'instrumentalness',
+            'key', 'liveness', 'loudness', 'mode', 'speechiness', 'tempo',
+            'time_signature', 'valence']
+
+def extract(feature, dic):
+    if dic is None:
+        return(np.nan)
+    return(dic[feature])
+
+for feature in features:
+    slices[feature] = np.array([extract(feature, t) for t in all_tracks_features])
+
+slices['release_dates'] = np.array(dates)
+slices['explicit'] = np.array(explicit)
+slices.drop('Unnamed: 0', axis=1, inplace=True)
+slices.head()
+```
+``` python
+slices.to_csv("single_slice_augmented_features.csv")
+```
 
 Using the Pandas `describe` function, before making any changes to the data, we obtain the following table showing 
 certain summary statistics for each of the above features. From the descriptions above and the tables below, we notice
