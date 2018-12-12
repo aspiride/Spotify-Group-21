@@ -3,6 +3,8 @@ title: Obtaining Data and EDA
 nav_include: 2
 ---
 
+<a href="https://aspiride.github.io/Spotify-Group-21/"><img src="https://cdn0.iconfinder.com/data/icons/command-buttons/512/Home-512.png" width="80" class="center"></a>
+---
 # Obtaining Data and EDA
 
 ## Content-Based Recommendation
@@ -341,4 +343,5 @@ plt.show()
 ![png](Images/data_coldstart_songs_per.png)
 
 
+<a href="https://aspiride.github.io/Spotify-Group-21/"><img src="https://cdn0.iconfinder.com/data/icons/command-buttons/512/Home-512.png" width="80" class="center"></a>
 
