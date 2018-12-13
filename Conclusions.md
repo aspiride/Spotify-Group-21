@@ -3,11 +3,17 @@ title: Conclusions
 nav_include: 5
 ---
 
+## Contents
+* [Model Evaluation and Conclusions](https://aspiride.github.io/Spotify-Group-21/Conclusions#model-evaluation-and-conclusions)
+* [Results and Discussion](https://aspiride.github.io/Spotify-Group-21/Conclusions#results-and-discussion)
+  - [Rap Music](https://aspiride.github.io/Spotify-Group-21/Conclusions#rap-music)
+  - [Chill/Indie Music](https://aspiride.github.io/Spotify-Group-21/Conclusions#rap-music)
+
 <a href="https://aspiride.github.io/Spotify-Group-21/"><img src="https://cdn0.iconfinder.com/data/icons/command-buttons/512/Home-512.png" width="80" class="center"></a>
 ---
 # Conclusion and Discussions
 
-## Model Evaluation
+## Model Evaluation and Conclusions
 Both the content-based and collaborative filtering models had fairly high training and test scores with their respective datasets. Specifically regarding the collaborative filtering model, it was chosen because it applies well to the cold start problem. It is difficult for a model to determine songs that the user would like when there are few songs already in the playlist - few training data. The collaborative filtering approach was chosen because it would be able to select from similar users who incorporated the same song in their playlists to determine what possible songs could be added to the target playlist. Due to this, there is a sort of "popularity contest" that occurs with this method.
 
 In terms of which model performed better, the predictions in the collaborative filtering model were not as similar to those made by the content-based model. In fact, the content-based model was able to produce very accurate predictions, which was surprising given that it only used about 60k songs. 
@@ -18,6 +24,7 @@ The bagged forest approach seemed to improve the predictions in a non-quantifiab
 
 For the reader's convenience, we generated some predictions for a subset of the playlists in the dataset and aggregated the links to the songs in the tables below.
 
+## Results and Discussion
 ### Rap Music
 
 The content-based model performed really well on rap music. This is probably because rap music is fairly distinct as a genre: high speechiness yet fairly high danceability as well.
