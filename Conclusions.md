@@ -12,6 +12,7 @@ nav_include: 5
   - [Rock Music](https://aspiride.github.io/Spotify-Group-21/Conclusions#rock-music)
   - [Stand Up Comedy](https://aspiride.github.io/Spotify-Group-21/Conclusions#stand-up-comedy)
   - [Christmas Songs](https://aspiride.github.io/Spotify-Group-21/Conclusions#christmas-songs)
+* [Future Work](https://aspiride.github.io/Spotify-Group-21/Conclusions#future-work)
 
 <a href="https://aspiride.github.io/Spotify-Group-21/"><img src="https://cdn0.iconfinder.com/data/icons/command-buttons/512/Home-512.png" width="80" class="center"></a>
 ---
@@ -111,7 +112,11 @@ Finally, we decided to look at Christmas songs, since 'tis the season!
 
 The model did surprisingly well on the Christmas music despite not having any genre or holiday features - it predicted Christmas music for four out of the top five recommendations. Christmas music does have a characteristic sound, so it is possible that the features we used here in some linear combination can be used to classify a Christmas genre. 
 
+## Future Work
 
+Future work is definitely necessary to create a production-ready algorithm. The content-based model seems to be the current forerunner, but the collaborative filtering approach fills in some of the drawbacks of content-based recommendation engines. Additionally, the model should probably just output a list of track-uris for Spotify to then implement in the playlist recommendations.
+
+One possible addition would be to add a "thumbs up/thumbs down" system where users can dismiss or accept recommendations given by the engine. That way, the algorithm does not have to rely as heavily on the bootstrapping approach and can assign some true $y=0$ values. One point of caution there would be that if the recommendation system only displays songs that already have high prediction probabilities and the users dislikes them, that could bias the results of the algorithm towards songs that are actually dissimilar to the songs in the playlist. Thus some kind of control would have to be in place, possibly where the algorithm returns a random sample of songs that scored above 80% and the user likes or dislikes those songs.
 
 
 
