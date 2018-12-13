@@ -7,7 +7,11 @@ nav_include: 5
 * [Model Evaluation and Conclusions](https://aspiride.github.io/Spotify-Group-21/Conclusions#model-evaluation-and-conclusions)
 * [Results and Discussion](https://aspiride.github.io/Spotify-Group-21/Conclusions#results-and-discussion)
   - [Rap Music](https://aspiride.github.io/Spotify-Group-21/Conclusions#rap-music)
-  - [Chill/Indie Music](https://aspiride.github.io/Spotify-Group-21/Conclusions#rap-music)
+  - [Chill/Indie Music](https://aspiride.github.io/Spotify-Group-21/Conclusions#chillindie-music)
+  - [Pop Music](https://aspiride.github.io/Spotify-Group-21/Conclusions#pop-music)
+  - [Rock Music](https://aspiride.github.io/Spotify-Group-21/Conclusions#rock-music)
+  - [Stand Up Comedy](https://aspiride.github.io/Spotify-Group-21/Conclusions#stand-up-comedy)
+  - [Christmas Songs](https://aspiride.github.io/Spotify-Group-21/Conclusions#christmas-songs)
 
 <a href="https://aspiride.github.io/Spotify-Group-21/"><img src="https://cdn0.iconfinder.com/data/icons/command-buttons/512/Home-512.png" width="80" class="center"></a>
 ---
