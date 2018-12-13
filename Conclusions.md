@@ -30,6 +30,13 @@ The bagged forest approach seemed to improve the predictions in a non-quantifiab
 For the reader's convenience, we generated some predictions for a subset of the playlists in the dataset and aggregated the links to the songs in the tables below.
 
 ## Results and Discussion
+
+### Guidelines
+
+The results are formatted with first the `get_results` output of the content-based model, which includes a random sample of songs in the target playlist, the top 5 predictions, and the 5 worst performing songs on the playlist at self-prediction (can be thought of as the worst fits that are in the playlist). It also includes data and plots for relevant accuracy scores and probabilities.
+
+Below the results output for each entry is a table of fifteen album covers. Each album cover is a clickable link to a Spotify excerpt of music that plays the desired song. The top row is the random sample, the middle row is the top predictions, and the bottom row is the worst songs in the target playlist. Feel free to play around and listen to the music to see how well the model performs!
+
 ### Rap Music
 
 The content-based model performed really well on rap music. This is probably because rap music is fairly distinct as a genre: high speechiness yet fairly high danceability as well.
