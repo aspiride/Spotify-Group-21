@@ -2,6 +2,13 @@
 title: Collaborative Filtering Approach
 nav_include: 4
 ---
+## Contents
+* [Theoretical Background](https://aspiride.github.io/Spotify-Group-21/Collaborative-Filtering#theoretical-background)
+* [Matrix Factorization](https://aspiride.github.io/Spotify-Group-21/Collaborative-Filtering#matrix-factorization)
+* [Neural Network](https://aspiride.github.io/Spotify-Group-21/Collaborative-Filtering#neural-network)
+* [Recommendation](https://aspiride.github.io/Spotify-Group-21/Collaborative-Filtering#recommendation)
+* [Discussion](https://aspiride.github.io/Spotify-Group-21/Collaborative-Filtering#discussion)
+* [Playlist Tests](https://aspiride.github.io/Spotify-Group-21/Collaborative-Filtering#playlist-tests)
 
 <a href="https://aspiride.github.io/Spotify-Group-21/"><img src="https://cdn0.iconfinder.com/data/icons/command-buttons/512/Home-512.png" width="80" class="center"></a>
 ---
