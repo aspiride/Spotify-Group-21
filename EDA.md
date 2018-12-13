@@ -3,6 +3,10 @@ title: Obtaining Data and EDA
 nav_include: 2
 ---
 
+## Contents
+* [Content-Based Recommendation](https://aspiride.github.io/Spotify-Group-21/EDA#content-based-recommendation)
+* [Cold-Start Problem Data](https://aspiride.github.io/Spotify-Group-21/EDA#cold-start-problem-data)
+
 <a href="https://aspiride.github.io/Spotify-Group-21/"><img src="https://cdn0.iconfinder.com/data/icons/command-buttons/512/Home-512.png" width="80" class="center"></a>
 ---
 # Obtaining Data and EDA
