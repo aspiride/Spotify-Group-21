@@ -4,11 +4,13 @@ nav_include: 3
 ---
 
 ## Contents
-{:.no_toc}
-*  
-{: toc}
-
-
+* [Reading in the Data](https://aspiride.github.io/Spotify-Group-21/Content-Based#reading-in-the-data)
+* [Helper Functions](https://aspiride.github.io/Spotify-Group-21/Content-Based#helper-functions)
+* [Bagged Forest](https://aspiride.github.io/Spotify-Group-21/Content-Based#bagged-forest)
+* [Tuning the Trees](https://aspiride.github.io/Spotify-Group-21/Content-Based#tuning-the-trees)
+* [Model Comparison](https://aspiride.github.io/Spotify-Group-21/Content-Based#model-comparison)
+* [PCA Investigation](https://aspiride.github.io/Spotify-Group-21/Content-Based#pca-investigation)
+* [K-Means Investigation](https://aspiride.github.io/Spotify-Group-21/Content-Based#k-means-investigation)
 
 <a href="https://aspiride.github.io/Spotify-Group-21/"><img src="https://cdn0.iconfinder.com/data/icons/command-buttons/512/Home-512.png" width="80" class="center"></a>
 ---
